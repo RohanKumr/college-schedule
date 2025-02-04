@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/college-schedule/static/css/main.9758ed46.css",
-    "main.js": "/college-schedule/static/js/main.033b0d59.js",
+    "main.js": "/college-schedule/static/js/main.9ec26573.js",
     "static/js/453.79a61bc9.chunk.js": "/college-schedule/static/js/453.79a61bc9.chunk.js",
     "index.html": "/college-schedule/index.html",
     "main.9758ed46.css.map": "/college-schedule/static/css/main.9758ed46.css.map",
-    "main.033b0d59.js.map": "/college-schedule/static/js/main.033b0d59.js.map",
+    "main.9ec26573.js.map": "/college-schedule/static/js/main.9ec26573.js.map",
     "453.79a61bc9.chunk.js.map": "/college-schedule/static/js/453.79a61bc9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.9758ed46.css",
-    "static/js/main.033b0d59.js"
+    "static/js/main.9ec26573.js"
   ]
 }
