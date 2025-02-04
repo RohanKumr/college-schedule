@@ -206,7 +206,7 @@ function TasksTimeline() {
                         textDecoration: isStrikeThrough ? "line-through" : "none",
                       } }
                     >
-                      { daysDifference }
+                      { daysDifference || "tba" }
                     </td>
                   </tr>
                 </>
