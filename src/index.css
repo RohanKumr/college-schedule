@@ -76,7 +76,7 @@ th, td {
   border: 1px solid #000;
   padding: 2px 6px;
   border-radius:4px;
-  font-size:13px;
+  font-size:16px;
 }
   td {
   background:black;
@@ -104,9 +104,16 @@ th, td {
 
 .filter-buttons {
   background: black;
-
   border:none;
   color:white;
-  padding:4px 16px;
-  margin:4px 2px;
+  padding:10px 16px;
+  margin:12px 2px;
+  border-radius:4px;
+  font-weight:bold
+}
+
+.filter-buttons:hover, .filter-buttons-active{
+  background:white;
+  color:black;
+  cursor:pointer
 }

@@ -106,10 +106,21 @@ function TasksTimeline() {
     <div className="timeline-container">
       <h1>{ getTime() }</h1>
 
-
       <div className="filter-group">
-        <button className="filter-buttons" >All </button>
-        { Object.values(COURSE_NAMES).map((course) => <button onClick={() => setFilter(course)} className="filter-buttons" key={course}>{course}</button>) }
+        <button 
+         className={`filter-buttons ${ !filter && 'filter-buttons-active'}`} 
+         onClick={() => setFilter(null)}
+         >All </button>
+        { Object.values(COURSE_NAMES)
+          .map((course) => 
+          <button 
+            key={course}
+            onClick={() => setFilter(course)} 
+            className={`filter-buttons ${ (course === filter) &&  'filter-buttons-active'}`}
+            >
+              {course}
+              </button>
+            )}
       </div>
       
       <table>
@@ -173,7 +184,7 @@ function TasksTimeline() {
                   <td>{ taskWeekday }</td>
                   <td
                     style={ {
-                      // textAlign: "right",
+                      textAlign: "left",
                       textDecoration: isStrikeThrough ? "line-through" : "none",
                       background: colors[course.toLowerCase()],
                     } }
@@ -190,6 +201,7 @@ function TasksTimeline() {
                   </td>
                   <td
                     style={ {
+                      textAlign: "left",
                       textDecoration: isStrikeThrough ? "line-through" : "none",
                     } }
                   >
