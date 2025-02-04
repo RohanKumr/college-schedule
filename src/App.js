@@ -10,7 +10,8 @@ import {
   WCMS,
   dotNet,
   months,
-  weeks
+  weeks,
+  monthsFull
 } from './enums';
 
 import { nth } from './helpers';
@@ -90,7 +91,7 @@ function TasksTimeline() {
   let prevMonth = null;
 
   return (
-    <div className="timeline-container">
+    <div key={ 1 } className="timeline-container">
       <h1>{ getTime() }</h1>
 
       <div className="filter-group">
@@ -152,8 +153,8 @@ function TasksTimeline() {
 
               return (
 
-                <>
-                  { months.indexOf(lastMonth) < months.indexOf(month) && <tr><td>{ month }</td></tr> }
+                <React.Fragment key={ idx }>
+                  { months.indexOf(lastMonth) < months.indexOf(month) && <tr><td>{ monthsFull[months.indexOf(month)] }</td></tr> }
                   <tr key={ idx }>
                     <td
                       style={ {
@@ -209,7 +210,7 @@ function TasksTimeline() {
                       { daysDifference || "tba" }
                     </td>
                   </tr>
-                </>
+                </React.Fragment>
 
               );
             })
@@ -233,7 +234,7 @@ const completedList = [
 function todoList() {
   if(list.length == 0) return <div></div>;
 
-  return <div class="todo-container">
+  return <div className="todo-container">
     <h1>Todos</h1>
     { list.map(task => <p>{ task }</p>) }
   </div>
@@ -242,12 +243,12 @@ function todoList() {
 function App() {
   return (
     <div className="App">
-      <div class="container">
+      <div className="container">
         {/* { tasksTimeline() } */ }
         <TasksTimeline />
         {/* { todoList() } */ }
       </div>)
-    </div>
+    </div >
   );
 }
 

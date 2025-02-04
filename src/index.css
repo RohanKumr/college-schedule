@@ -118,3 +118,29 @@ td {
   height: 10px;
   border-radius: 50%;
 }
+
+@media only screen and (max-width: 768px) {
+  th,
+  td {
+    font-size: 12px;
+    min-width: fit-content;
+  }
+
+  .filter-buttons {
+    margin: 0 4px 2px 0;
+    padding: 6px 8px;
+  }
+
+  .tag {
+    height: 5px;
+    width: 5px;
+  }
+  table {
+    overflow-y: auto;
+    width: 100%;
+    display: block;
+  }
+  body {
+    width: auto;
+  }
+}
