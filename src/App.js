@@ -1,17 +1,19 @@
 import './App.css';
-import React, {useState} from 'react'
-import  { 
-  COURSE_NAMES, 
-  MangementAndLeadership, 
-  CareerManagement, 
+import React, { useState } from 'react'
+import {
+  COURSE_NAMES,
+  MangementAndLeadership,
+  CareerManagement,
   Capstone,
   WebTrends,
   WebSecuirityQualityAssurance,
   WCMS,
-  dotNet
- } from './enums'  ;
- 
-import {nth} from './helpers'  ;
+  dotNet,
+  months,
+  weeks
+} from './enums';
+
+import { nth } from './helpers';
 
 const data = [
   ...MangementAndLeadership(),
@@ -23,29 +25,15 @@ const data = [
   ...Capstone(),
 ]
 
-
-
-
 const colors = {
-  // 'android': "#D3D3D3",
-  // 'dot net': "#CCFEFF",
-  // 'MySQL': "#FFCCCB",
-  // "full stack": "#E6E6FA",
-  // 'seo': "#d2f8d2"
+  [COURSE_NAMES.MANAGEMENT_LEADERSHIP]: "deeppink",
+  [COURSE_NAMES.WEB_TRENDS]: 'white',
+  [COURSE_NAMES.DOT_NET]: "#CCFF00",
+  [COURSE_NAMES.CAREER_MANAGEMENT]: "orange",
+  [COURSE_NAMES.WEB_SECURITY_QUALITY_ASSURANCE]: "aqua",
+  [COURSE_NAMES.WCMS]: 'yellow',
+  [COURSE_NAMES.CAPSTONE]: '#CF9FFF',
 }
-
-
-// const weeks = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
-// const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-
-
-
-
-const sortByFirstTwoDigits = (a, b) => {
-  const aDigits = parseInt(a.substring(0, 2));
-  const bDigits = parseInt(b.substring(0, 2));
-  return aDigits - bDigits;
-};
 
 const strikeThroughIndexes = []; // Example indexes to strike through
 
@@ -58,8 +46,7 @@ function TasksTimeline() {
   const currentMonth = currentDate.getMonth();
   const currentYear = currentDate.getFullYear();
 
-  const months = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
-  const weeks = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
 
   // Function to convert month abbreviation to numeric index
   const getMonthIndex = (month) => months.indexOf(month.toLowerCase());
@@ -100,29 +87,29 @@ function TasksTimeline() {
 
   data.sort(sortByDate);
 
-  
+  let prevMonth = null;
 
   return (
     <div className="timeline-container">
       <h1>{ getTime() }</h1>
 
       <div className="filter-group">
-        <button 
-         className={`filter-buttons ${ !filter && 'filter-buttons-active'}`} 
-         onClick={() => setFilter(null)}
-         >All </button>
+        <button
+          className={ `filter-buttons ${!filter && 'filter-buttons-active'}` }
+          onClick={ () => setFilter(null) }
+        >All </button>
         { Object.values(COURSE_NAMES)
-          .map((course) => 
-          <button 
-            key={course}
-            onClick={() => setFilter(course)} 
-            className={`filter-buttons ${ (course === filter) &&  'filter-buttons-active'}`}
+          .map((course) =>
+            <button
+              key={ course }
+              onClick={ () => setFilter(course) }
+              className={ `filter-buttons ${(course === filter) && 'filter-buttons-active'}` }
             >
-              {course}
-              </button>
-            )}
+              { course }
+            </button>
+          ) }
       </div>
-      
+
       <table>
         <thead>
           <tr style={ { borderBottom: "2px solid #000" } }>
@@ -141,9 +128,9 @@ function TasksTimeline() {
               const [day, month, course, weightage, task] = item
                 .split(" - ")
                 .map((str) => str.trim());
-                
-                if (!filter) return true;
-                return course === filter;
+
+              if(!filter) return true;
+              return course === filter;
 
             }).map((item, idx) => {
               const [day, month, course, weightage, task] = item
@@ -154,69 +141,76 @@ function TasksTimeline() {
               const daysDifference = Math.ceil(
                 (taskDate - currentDate) / (1000 * 60 * 60 * 24)
               );
-              if (daysDifference< -1) return null;
-
+              if(daysDifference < -1) return null;
 
               const isStrikeThrough =
                 taskDate < currentDate || strikeThroughIndexes.includes(idx);
-              
+              const lastMonth = prevMonth;
+              prevMonth = month;
+
+              if(daysDifference > 100) return null
+
               return (
-                
-                <tr key={ idx }>
-                  <td
-                    style={ {
-                      background:
-                        daysDifference >= -1 && daysDifference <= 3
-                          ? daysDifference <= 1
-                            ? "rgba(255, 32, 32, 0.7)"
-                            : "#FFEAEB"
-                          : "white",
-                      color: "black",
-                      fontWeight: "bold",
-                      letterSpacing: "1px",
-                      textAlign: "right",
-                      textDecoration: isStrikeThrough ? "line-through" : "none",
-                    } }
-                  >
-                    { day }
-                  </td>
-                  <td>{ month }</td>
-                  <td>{ taskWeekday }</td>
-                  <td
-                    style={ {
-                      textAlign: "left",
-                      textDecoration: isStrikeThrough ? "line-through" : "none",
-                      background: colors[course.toLowerCase()],
-                    } }
-                  >
-                    { course }
-                  </td>
-                  <td
-                    style={ {
-                      textAlign: "right",
-                      textDecoration: isStrikeThrough ? "line-through" : "none",
-                    } }
-                  >
-                    { weightage }
-                  </td>
-                  <td
-                    style={ {
-                      textAlign: "left",
-                      textDecoration: isStrikeThrough ? "line-through" : "none",
-                    } }
-                  >
-                    { task }
-                  </td>
-                  <td
-                    style={ {
-                      textAlign: "right",
-                      textDecoration: isStrikeThrough ? "line-through" : "none",
-                    } }
-                  >
-                    { daysDifference  }
-                  </td>
-                </tr>
-                
+
+                <>
+                  { months.indexOf(lastMonth) < months.indexOf(month) && <tr><td>{ month }</td></tr> }
+                  <tr key={ idx }>
+                    <td
+                      style={ {
+                        background:
+                          daysDifference >= -1 && daysDifference <= 3
+                            ? daysDifference <= 1
+                              ? "rgba(255, 32, 32, 0.7)"
+                              : "#FFEAEB"
+                            : "white",
+                        color: "black",
+                        fontWeight: "bold",
+                        letterSpacing: "1px",
+                        textAlign: "right",
+                        textDecoration: isStrikeThrough ? "line-through" : "none",
+                      } }
+                    >
+                      { day }
+                    </td>
+                    <td>{ month }</td>
+                    <td>{ taskWeekday }</td>
+                    <td
+                      style={ {
+                        textAlign: "left",
+                        textDecoration: isStrikeThrough ? "line-through" : "none",
+                        background: colors[course.toLowerCase()],
+                      } }
+                    >
+                      <div className="tag" style={ { background: colors[course] } } ></div>
+                      { course }
+                    </td>
+                    <td
+                      style={ {
+                        textAlign: "right",
+                        textDecoration: isStrikeThrough ? "line-through" : "none",
+                      } }
+                    >
+                      { weightage }
+                    </td>
+                    <td
+                      style={ {
+                        textAlign: "left",
+                        textDecoration: isStrikeThrough ? "line-through" : "none",
+                      } }
+                    >
+                      { task }
+                    </td>
+                    <td
+                      style={ {
+                        textAlign: "right",
+                        textDecoration: isStrikeThrough ? "line-through" : "none",
+                      } }
+                    >
+                      { daysDifference }
+                    </td>
+                  </tr>
+                </>
+
               );
             })
             : "List is empty" }
@@ -225,8 +219,6 @@ function TasksTimeline() {
     </div>
   );
 }
-
-
 
 /* To Do List */
 const list = [
@@ -250,11 +242,11 @@ function todoList() {
 function App() {
   return (
     <div className="App">
-       <div class="container">
-      {/* { tasksTimeline() } */}
-      <TasksTimeline />
-      {/* { todoList() } */ }
-    </div>)
+      <div class="container">
+        {/* { tasksTimeline() } */ }
+        <TasksTimeline />
+        {/* { todoList() } */ }
+      </div>)
     </div>
   );
 }

@@ -1,4 +1,14 @@
 
+// const weeks = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+// const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+
+// const sortByFirstTwoDigits = (a, b) => {
+//   const aDigits = parseInt(a.substring(0, 2));
+//   const bDigits = parseInt(b.substring(0, 2));
+//   return aDigits - bDigits;
+// };
+
 // ALL Courses
 export const COURSE_NAMES = {
   MANAGEMENT_LEADERSHIP: "Management Leadership",
@@ -27,7 +37,7 @@ export const MangementAndLeadership = () => {
 export const WebTrends = () => {
   // Includes everything
   const course = COURSE_NAMES.WEB_TRENDS
-  return [    
+  return [
     `6 - feb - ${course} - 10 - Quiz 2: BlockChain`,
     `20 - feb - ${course} - 7.5 - Midterm`,
     `6 - mar - ${course} - 10 - Quiz 3: Cloud Computing`,
@@ -67,13 +77,13 @@ export const CareerManagement = () => {
 export const WCMS = () => {
   // Missing Final Date
   const course = COURSE_NAMES.WCMS
-  
+
   return [
     `18 - feb - ${course} - 10 - MidTerm Quiz`,
     `18 - feb - ${course} - 10 - MidTerm Practical`,
     `22 - feb - ${course} - 30 - Project 1: eCommerce`,
     `12 - apr - ${course} - 30 - Project 2: Group D3`,
-    `TBA - apr - ${course} - 20 - Final Exam`, 
+    `TBA - apr - ${course} - 20 - Final Exam`,
   ];
 };
 
@@ -84,7 +94,7 @@ export const WebSecuirityQualityAssurance = () => {
     `21 - feb - ${course} - 30 - Project 1: QA Testing Plan`,
     `TBA - feb - ${course} - 30 - Project 2: Security Presentation`,
     `TBA - feb - ${course} - 20 - Midterm`,
-    `TBA - apr - ${course} - 20 - Final Exam`, 
+    `TBA - apr - ${course} - 20 - Final Exam`,
   ];
 };
 
@@ -96,14 +106,18 @@ export const Capstone = () => {
     `26 - jan - ${course} - 5 - Project Proposal`,
     `6 - feb - ${course} - 15 - Sprint-1 Implementation`,
     `6 - feb - ${course} - 5 - Scrum-1 Activity`,
-    `TBA - feb - ${course} - 15 - Sprint-2 Implementation`,
-    `TBA - feb - ${course} - 5 - Scrum-2 Activity`,
-    `TBA - feb - ${course} - 15 - Sprint-3 Implementation`,
-    `TBA - feb - ${course} - 5 - Scrum-3 Activity`,
-    `TBA - feb - ${course} - 15 - Sprint-4 Implementation`,
-    `TBA - feb - ${course} - 5 - Scrum-4 Activity`,
-    `TBA - feb - ${course} - 5 - Final Report`,
-    `TBA - apr - ${course} - 5 - Group Presentation`, 
+    `TBA - tba - ${course} - 15 - Sprint-2 Implementation`,
+    `TBA - tba - ${course} - 5 - Scrum-2 Activity`,
+    `TBA - tba - ${course} - 15 - Sprint-3 Implementation`,
+    `TBA - tba - ${course} - 5 - Scrum-3 Activity`,
+    `TBA - tba - ${course} - 15 - Sprint-4 Implementation`,
+    `TBA - tba - ${course} - 5 - Scrum-4 Activity`,
+    `TBA - tba - ${course} - 5 - Final Report`,
+    `TBA - tba - ${course} - 5 - Group Presentation`,
   ];
 
 }
+
+
+export const months = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
+export const weeks = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
