@@ -15,6 +15,9 @@ import {
 } from '../enums';
 
 import { nth } from '../helpers';
+import { Link } from 'react-router-dom';
+
+
 
 const data = [
   ...MangementAndLeadership(),
@@ -93,7 +96,7 @@ function TasksTimeline() {
   return (
     <div key={ 1 } className="timeline-container">
       <h1>{ getTime() }</h1>
-
+      <button><Link to="animation" >Check Animation</Link></button>
       <div className="filter-group">
         <button
           className={ `filter-buttons ${!filter && 'filter-buttons-active'}` }
