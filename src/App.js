@@ -11,8 +11,8 @@ export default function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={ <Schedule /> } />
-        <Route path="/animation" element={ <Animation /> } />
+        <Route path="" element={ <Schedule /> } />
+        <Route path="animation" element={ <Animation /> } />
       </Routes>
     </Router>
   );
