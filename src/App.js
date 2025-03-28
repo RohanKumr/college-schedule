@@ -1,6 +1,6 @@
 import './App.css';
 import React from 'react'
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 
 import Schedule from "./schedule/index";
 import Animation from "./animation/index";
@@ -9,13 +9,11 @@ import Animation from "./animation/index";
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <Router>
       <Routes>
-        <Route path="/college-schedule" element={ <Schedule /> }>
-
-        </Route>
-        <Route path="/college-schedule/animation" element={ <Animation /> } />
+        <Route path="/" element={ <Schedule /> } />
+        <Route path="/animation" element={ <Animation /> } />
       </Routes>
-    </BrowserRouter>
+    </Router>
   );
 }
