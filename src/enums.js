@@ -1,13 +1,5 @@
 
-// const weeks = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
-export const monthsFull = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-
-// const sortByFirstTwoDigits = (a, b) => {
-//   const aDigits = parseInt(a.substring(0, 2));
-//   const bDigits = parseInt(b.substring(0, 2));
-//   return aDigits - bDigits;
-// };
 
 // ALL Courses
 export const COURSE_NAMES = {
@@ -118,6 +110,14 @@ export const Capstone = () => {
 
 }
 
-
 export const months = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
 export const weeks = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+// const weeks = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+export const monthsFull = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+// const sortByFirstTwoDigits = (a, b) => {
+//   const aDigits = parseInt(a.substring(0, 2));
+//   const bDigits = parseInt(b.substring(0, 2));
+//   return aDigits - bDigits;
+// };
