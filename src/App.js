@@ -9,10 +9,10 @@ import Animation from "./animation/index";
 
 export default function App() {
   return (
-    <Router>
+    <Router basename="/college-schedule">  {/* Ensures routing works inside GitHub Pages */ }
       <Routes>
-        <Route path="" element={ <Schedule /> } />
-        <Route path="animation" element={ <Animation /> } />
+        <Route path="/" element={ <Schedule /> } />
+        <Route path="animation" element={ <Animation /> } />  {/* No leading slash */ }
       </Routes>
     </Router>
   );
