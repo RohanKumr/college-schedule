@@ -31,7 +31,7 @@ body {
 const background = 'https://cdn.pixabay.com/photo/2016/09/29/10/08/halloween-1702531_1280.jpg'
 // const background = 'https://cdn.pixabay.com/photo/2023/10/17/19/29/pumpkins-8322245_1280.jpg' */
 
-  /* background: url("https://cdn.pixabay.com/photo/2016/09/29/10/08/halloween-1702531_1280.jpg"); */
+  background: url("https://cdn.pixabay.com/photo/2016/09/29/10/08/halloween-1702531_1280.jpg");
   background-size: cover;
   border-radius: 16px;
 

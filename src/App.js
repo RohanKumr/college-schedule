@@ -11,14 +11,10 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* <Route path="/" element={<Layout />}> */ }
-        {/* <Route index element={<Home />} />
-          <Route path="blogs" element={<Blogs />} />
-          <Route path="contact" element={<Contact />} />
-          <Route path="*" element={<NoPage />} /> */}
-        {/* </Route> */ }
-        <Route path="/college-schedule" element={ <Schedule /> } />
-        <Route path="/animation" element={ <Animation /> } />
+        <Route path="/college-schedule" element={ <Schedule /> }>
+
+        </Route>
+        <Route path="/college-schedule/animation" element={ <Animation /> } />
       </Routes>
     </BrowserRouter>
   );
